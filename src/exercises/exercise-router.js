@@ -29,13 +29,13 @@ exerciseRouter
 })
 
 .post(jsonParser, (req,res,next) => {
-    const {id, name, user_id, exercise_length, date} = req.body
+    const {name, user_id, exercise_length, date, notes} = req.body
     const payload = {
-        user_id:user_id,
-        exercise_id:id,
-        name:name,
-        exercise_length: exercise_length,
-        date: date
+        user_id,
+        name,
+        exercise_length,
+        date,
+        notes
     }
     ExerciseService.insertExercise(
         req.app.get('db'),
@@ -69,8 +69,17 @@ exerciseRouter
     })
     .get((req,res,next) => {
         res.json(serializeExercises(res.exercise))
-    });
-
+    })
+    .delete((req, res, next) => {
+        ExerciseService.deleteExercise(
+            req.app.get('db'),
+            req.params.exercise_id
+        )
+        .then(numRowsAffected => {
+            res.status(204).end()
+        })
+        .catch(next)
+        });
 
 exerciseRouter
     .route('/user/:user_id')

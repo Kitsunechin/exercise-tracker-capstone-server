@@ -29,5 +29,13 @@ const ExerciseService = {
         .select('*')
     },
 
+    deleteExercise(db, exercise_id) {
+        return db('exercises')
+            .where({
+                'id': exercise_id
+            })
+            .delete()
+    }
+
 }
 module.exports = ExerciseService
