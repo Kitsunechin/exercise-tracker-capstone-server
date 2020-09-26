@@ -18,7 +18,7 @@ exerciseRouter
     .then(exercises => {
         if(exercises.length == 0) {
             return res.status(404).json({
-                error: { message: `No visited exercises for this user` }
+                error: { message: `No exercises for this user` }
               })  
         }
         else {
