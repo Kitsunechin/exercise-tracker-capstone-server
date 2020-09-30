@@ -21,7 +21,7 @@ describe(' Exercises Endpoints', function () {
     afterEach('cleanup', () => db('exercises').truncate())
 
 
-    describe(`GET /api/exercise/user/:user_id`, () => {
+    describe(`GET /api/exercise/:user_id`, () => {
         context(`Given no users`, () => {
             it(`responds with 404`, () => {
                 const userId = 123456
