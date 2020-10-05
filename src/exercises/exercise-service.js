@@ -27,6 +27,7 @@ const ExerciseService = {
         return knex
         .from('exercises')
         .select('*')
+        .where('user_id',user_id)
     },
 
     deleteExercise(db, exercise_id) {
