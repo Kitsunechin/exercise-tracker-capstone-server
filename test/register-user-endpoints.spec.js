@@ -4,7 +4,7 @@ const app = require('../src/app')
 const UsersService = require('../src/users/users-service')
 
 
-describe.only('Login Users Endpoints', function () {
+describe('Login Users Endpoints', function () {
     let db
 
     before('make knex instance', () => {
@@ -30,7 +30,7 @@ describe.only('Login Users Endpoints', function () {
 
 
     describe(`POST /api/users`, () => {
-        it.only(`creates a user, responding with 201 and the new user`, function () {
+        it(`creates a user, responding with 201 and the new user`, function () {
             this.retries(3)
             const newUser = {
                 id: 1,

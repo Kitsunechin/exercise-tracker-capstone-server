@@ -1,5 +1,5 @@
 const knex = require('knex')
-const makeExerciseArray  = require('./exercises.fixtures')
+const {makeExerciseArray}  = require('./exercises.fixtures')
 const app = require('../src/app')
 
 
@@ -32,7 +32,7 @@ describe(' Exercises Endpoints', function () {
         })
 
         context('Given there are exercises in the database', () => {
-            const testExercises = exercisesFixtures.makeExerciseArray()
+            const testExercises = makeExerciseArray()
 
             beforeEach('insert exercise', () => {
                 return db
